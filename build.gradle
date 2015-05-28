@@ -1,0 +1,38 @@
+
+apply plugin: 'java' 
+apply plugin: 'eclipse'
+
+
+
+apply plugin:'application'
+ 
+
+mainClassName = "com.handler.SolrHandler"
+ 
+jar {
+    baseName = 'JavaHtmlParser'
+    version =  '0.1.0'
+} 
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+} 
+ 
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile){
+	options.encoding="UTF-8"
+  options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}
+
+
+dependencies {
+  dependencies{
+	compile fileTree(dir: 'lib', include: '*.jar')
+	
+}
+}
